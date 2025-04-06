@@ -37,8 +37,30 @@ function generatepassword() {
 
 function calculatequality(){
     const passwordlength = passwordlengthEL.value
-    let percent = Math.round((passwordlength /64) * 100)
+    let percent = Math.round(
+        (passwordlength / 64)* 25 +
+        (uppercaseEl.checked ? 15 : 0) +
+        (numbersEl.checked ? 25 :0) + 
+        (specialcharsEl.checked ? 35 : 0))
     securityindicatorbarEl.style.width = `${percent}%`
+
+    if(percent>69){
+        securityindicatorbarEl.classList.remove('critical')
+        securityindicatorbarEl.classList.remove('warning')
+        securityindicatorbarEl.classList.add('safe')
+    
+    } else if(percent>50){
+        securityindicatorbarEl.classList.remove('critical')
+        securityindicatorbarEl.classList.add('warning')
+        securityindicatorbarEl.classList.remove('safe')
+
+    } else {
+        securityindicatorbarEl.classList.add('critical')
+        securityindicatorbarEl.classList.remove('warning')
+        securityindicatorbarEl.classList.remove('safe')
+    }
+
+    
     
 }
 
