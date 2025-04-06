@@ -41,13 +41,17 @@ const passwordlengthEL = document.querySelector("#password-length")
 
 passwordlengthEL.addEventListener("input", function(){
     const passwordlength = passwordlengthEL.value
+    document.querySelector("#password-length-text").innerText = passwordlength
     generatepassword(passwordlength)
+
 })
 
 
 uppercaseEl.addEventListener("click", generatepassword(passwordlength))
 specialcharsEl.addEventListener("click", generatepassword(passwordlength))
 numbersEl.addEventListener("click", generatepassword(passwordlength))
+
+
 
 
 const copybuttonEl = document.querySelector("#copy")
