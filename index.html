@@ -15,19 +15,31 @@
     <button>copiar senha</button>
 
     <script>
+        let passwordleng = 16;
+
         function generatepassword() {
             const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%&()*+,-./:;<=>?@[]^_{|}~"
 
             let password = ""
 
-            for(let i = 0; i<8; i++){
+            for(let i = 0; i<passwordleng; i++){
                 const randomnumber = Math.floor(Math.random()*chars.length)
                 password += chars.substring(randomnumber, randomnumber + 1)
 
-                
             }
 
+            const inputpassword = document.querySelector("#password")
+            inputpassword.value = password
+
         }
+
+        const passwordlength = document.querySelector("#password-length")
+        passwordlength.addEventListener("input", function(){
+            const passwordleng = passwordlength.value
+            generatepassword()
+        })
+
+        generatepassword()
     </script>
 </body>
 </html>
