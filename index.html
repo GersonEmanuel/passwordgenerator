@@ -16,7 +16,7 @@
 
     <script>
         let passwordleng = 16;
-        const inputpassword = document.querySelector("#password")
+        const inputpasswordEl = document.querySelector("#password")
         
 
         function generatepassword() {
@@ -29,17 +29,16 @@
                 password += chars.substring(randomnumber, randomnumber + 1)
 
             }
-
-            inputpassword.value = password
+            inputpasswordEl.value = password
         }
 
         function copy() {
-            navigator.clipboard.writeText(inputpassword.value)
+            navigator.clipboard.writeText(inputpasswordEl.value)
         }
 
         const passwordlengthEL = document.querySelector("#password-length")
-        passwordlength.addEventListener("input", function(){
-            const passwordleng = passwordlength.value
+        passwordlengthEL.addEventListener("input", function(){
+            const passwordleng = passwordlengthEL.value
             generatepassword()
         })
 
