@@ -33,6 +33,7 @@ function generatepassword() {
     }
     inputpasswordEl.value = password
     calculatequality()
+    calculatefontsize()
 }
 
 function calculatequality(){
@@ -59,9 +60,29 @@ function calculatequality(){
         securityindicatorbarEl.classList.remove('warning')
         securityindicatorbarEl.classList.remove('safe')
     }
+ 
+}
 
-    
-    
+function calculatefontsize(){
+    const passwordlength = passwordlengthEL.value
+    if(passwordlength>45) {
+        inputpasswordEl.classList.remove('font-sm')
+        inputpasswordEl.classList.remove('font-xs')
+        inputpasswordEl.classList.add('font-xxs')
+    } else if(passwordlength>32){
+        inputpasswordEl.classList.remove('font-sm')
+        inputpasswordEl.classList.add('font-xs')
+        inputpasswordEl.classList.remove('font-xxs')
+    } else if(passwordlength> 22){
+        inputpasswordEl.classList.add('font-sm')
+        inputpasswordEl.classList.remove('font-xs')
+        inputpasswordEl.classList.remove('font-xxs')
+    } else{
+        inputpasswordEl.classList.remove('font-sm')
+        inputpasswordEl.classList.remove('font-xs')
+        inputpasswordEl.classList.remove('font-xxs')
+    }
+
 }
 
 function copy() {
