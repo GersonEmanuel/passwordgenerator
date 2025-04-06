@@ -13,5 +13,21 @@
     <input type="range" name="password-length" id="password-length" value="16" min="4" max="64">
 
     <button>copiar senha</button>
+
+    <script>
+        function generatepassword() {
+            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%&()*+,-./:;<=>?@[]^_{|}~"
+
+            let password = ""
+
+            for(let i = 0; i<8; i++){
+                const randomnumber = Math.floor(Math.random()*chars.length)
+                password += chars.substring(randomnumber, randomnumber + 1)
+
+                
+            }
+
+        }
+    </script>
 </body>
 </html>
