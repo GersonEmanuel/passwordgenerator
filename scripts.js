@@ -109,4 +109,6 @@ numbersEl.addEventListener("click", generatepassword)
 const copybuttonEl = document.querySelector("#copy")
 copybuttonEl.addEventListener("click", copy)
 
+document.querySelector("#new_password").addEventListener("click", generatepassword)
+
 generatepassword()
