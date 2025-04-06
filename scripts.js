@@ -1,9 +1,27 @@
-let passwordleng = 16;
+let passwordlength = 16;
 const inputpasswordEl = document.querySelector("#password")
+const uppercaseEl = document.querySelector("#uppercase-check")
+const specialcharsEl = document.querySelector("#specialcharacters-check")
+const numbersEl = document.querySelector("#numbers-check")
 
 
 function generatepassword(passwordlength) {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%&()*+,-./:;<=>?@[]^_{|}~"
+
+    let chars = "abcdefghijklmnopqrstuvwxyz"
+    const Upperchars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    const numbers = "0123456789"
+    const specialchars = "!#$%&()*+,-./:;<=>?@[]^_{|}~"
+
+
+    if(uppercaseEl.checked){
+        chars += Upperchars
+    }
+    if(numbersEl.checked){
+        chars += numbers
+    }
+    if(specialcharsEl.checked){
+        chars += specialchars
+    }
 
     let password = ""
 
@@ -20,10 +38,17 @@ function copy() {
 }
 
 const passwordlengthEL = document.querySelector("#password-length")
+
 passwordlengthEL.addEventListener("input", function(){
     const passwordlength = passwordlengthEL.value
     generatepassword(passwordlength)
 })
+
+
+uppercaseEl.addEventListener("click", generatepassword(passwordlength))
+specialcharsEl.addEventListener("click", generatepassword(passwordlength))
+numbersEl.addEventListener("click", generatepassword(passwordlength))
+
 
 const copybuttonEl = document.querySelector("#copy")
 copybuttonEl.addEventListener("click", copy)
