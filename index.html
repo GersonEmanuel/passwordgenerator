@@ -12,10 +12,12 @@
 
     <input type="range" name="password-length" id="password-length" value="16" min="4" max="64">
 
-    <button>copiar senha</button>
+    <button id="copy">copiar senha</button>
 
     <script>
         let passwordleng = 16;
+        const inputpassword = document.querySelector("#password")
+        
 
         function generatepassword() {
             const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%&()*+,-./:;<=>?@[]^_{|}~"
@@ -28,16 +30,21 @@
 
             }
 
-            const inputpassword = document.querySelector("#password")
             inputpassword.value = password
-
         }
 
-        const passwordlength = document.querySelector("#password-length")
+        function copy() {
+            navigator.clipboard.writeText(inputpassword.value)
+        }
+
+        const passwordlengthEL = document.querySelector("#password-length")
         passwordlength.addEventListener("input", function(){
             const passwordleng = passwordlength.value
             generatepassword()
         })
+
+        const copybuttonEl = document.querySelector("#copy")
+        copybuttonEl.addEventListener("click", copy)
 
         generatepassword()
     </script>
