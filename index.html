@@ -12,7 +12,7 @@
     <main>
         <section class="hero">
             <h2 class="title">Password generator</h2>
-            <p class="subtitle">generate strong password</p>
+            <p class="subtitle">generate strong passwords</p>
         </section>
         
         <section class="box">
@@ -37,27 +37,32 @@
         </section>
 
         <section class="box customize">
-            <h3 class>edit</h3>
+            <h3 class="title">edit</h3>
             <div class="actions">
+                
+                <div class="password-length">
+                    <p>Size: <span id="password-length-text">16</span></p>
 
-                <p>tamanho: <span id="password-length-text">16</span></p>
-
-                <input type="range" name="password-length" id="password-length" value="16" min="4" max="64">
+                    <input type="range" name="password-length" id="password-length" class="slider" value="16" min="4" max="64">
+                </div>
 
                 <div class="config">
                     <label class="checkbox-container">
                         <span class="text">Uppercase</span>
                         <input type="checkbox" id="uppercase-check" checked>
+                        <span class="checkmark"></span>
                     </label>
 
                     <label class="checkbox-container">
                         <span class="text">Special characters</span>
                         <input type="checkbox" id="specialcharacters-check" checked>
+                        <span class="checkmark"></span>
                     </label>
 
                     <label class="checkbox-container">
                         <span class="text">Numbers</span>
                         <input type="checkbox" id="numbers-check" checked>
+                        <span class="checkmark"></span>
                     </label>
 
                 </div>
