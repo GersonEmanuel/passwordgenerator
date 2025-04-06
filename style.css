@@ -1,0 +1,20 @@
+main{
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.hero {
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.hero .title{
+    font-size: 2.5rem;
+    padding-bottom: 1.125rem;
+}
+
+.hero .subtitle {
+    font-size: 2rem;
+    color: grey;
+    padding-bottom: 4rem;
+}
