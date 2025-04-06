@@ -3,6 +3,7 @@ const inputpasswordEl = document.querySelector("#password")
 const uppercaseEl = document.querySelector("#uppercase-check")
 const specialcharsEl = document.querySelector("#specialcharacters-check")
 const numbersEl = document.querySelector("#numbers-check")
+let securityindicatorbarEl = document.querySelector("#security-indicator-bar")
 
 
 function generatepassword(passwordlength) {
@@ -31,6 +32,13 @@ function generatepassword(passwordlength) {
 
     }
     inputpasswordEl.value = password
+    calculatequality()
+}
+
+function calculatequality(){
+    let percent = Math.round((passwordlength /64) * 100)
+    securityindicatorbarEl.style.width = `${percent}%`
+    
 }
 
 function copy() {
@@ -47,14 +55,12 @@ passwordlengthEL.addEventListener("input", function(){
 })
 
 
-uppercaseEl.addEventListener("click", generatepassword(passwordlength))
-specialcharsEl.addEventListener("click", generatepassword(passwordlength))
-numbersEl.addEventListener("click", generatepassword(passwordlength))
+uppercaseEl.addEventListener("click",() => generatepassword(passwordlength))
+specialcharsEl.addEventListener("click",() => generatepassword(passwordlength))
+numbersEl.addEventListener("click",() => generatepassword(passwordlength))
 
 
 
 
 const copybuttonEl = document.querySelector("#copy")
 copybuttonEl.addEventListener("click", copy)
-
-generatepassword(passwordlength)
